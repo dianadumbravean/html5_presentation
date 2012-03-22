@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://smustalks.appspot.com/touch-11/#12 -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>A Touch of HTML5</title>
+		<meta charset="utf-8">
+		<script src="slides.js"></script>
+		<meta name="viewport" content="width=1100,height=750">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+	</head>
+	<body style="display: none" class="loaded">
+		<section class="slides layout-regular">
+			<article class="biglogo"></article>
+			
+			<article class="">
+				<h1> HTML 5</h1>
+				<h2> Features
+				<br />
+				<br />
+				<br />
+				</h2>
+				<h3>Diana Dumbravean</h3>
+				<p>
+					diana.dumbravean@evozon.com ddumbravean@gmail.com
+					<br>
+					<br>
+					March 2012
+					<br>
+				</p>
+			</article>
+			
+			<article class="">
+				<h3>Agenda</h3>
+				<ul>
+					<li>What HTML5 is</li>
+					<li>HTML5 Features</li>
+					<li>Web Sockets</li>
+					<li>Geolocation</li>
+					<li>SVG</li>
+					<li>Client Storage</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>What HTML5 is</h3>
+				<ul>
+					<li> It is the fifth revision of the HTML standard</li>
+					<li> It became the topic of mainstream media in April 2010 after Steve Jobs issued a public letter titled 
+						"Thoughts on Flash" where he concludes that "[Adobe] Flash is no longer necessary to watch video or consume any kind of web 
+						content" and that "new open standards created in the mobile era, such as HTML5, will win".</li>
+					<li> In early November 2011 Adobe announced that it will discontinue development of Flash for mobile devices and reorient its efforts in 
+						developing tools utilizing HTML 5.</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>Why HTML5</h3>
+				<ul>
+					<li>HTML5 core aims have been to improve the language with support for the latest multimedia 
+						while keeping it easily readable by humans and consistently understood by computers and devices</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">New Doctype</p>
+				<ul>
+					<pre class="prettyprint">&lt;!DOCTYPE html&gt;</pre>
+					<span>Instead of </span>
+					<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" <br /> "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt; </pre>
+					<li>DOCTYPE is not even necessary, but used for old browser that require a specified doctype</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">No More Types for Scripts and Links</p>
+				<pre>
+&lt;link rel="stylesheet" href="path/to/stylesheet.css" /&gt;  
+&lt;script src="path/to/script.js"&gt;&lt;/script&gt;  
+				</pre>
+				<p><span>Instead of </span></p>
+				<pre>
+&lt;link rel="stylesheet" href="path/to/stylesheet.css" type="text/css"&gt;  
+&lt;script type="text/javascript" src="path/to/script.js"&gt;&lt;/script&gt;  	
+				</pre>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">No Wrapping Required</p>
+				<pre>
+&lt;p class=myClass id=MyId&gt; MyParagraph Text
+				</pre>
+				<p>If you preffer a structured document, you may use the closing tags, but this is not necessary</p>
+				<p>Also, the quotes are not necessary.</p>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">The Figure Element</p>		
+				<pre>
+&lt;figure&gt;
+	&lt;img src="path/to/image" alt="About image" /&gt;
+	&lt;figcaption&gt;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is an image of something interesting.&lt;/p&gt;
+	&lt;/figcaption&gt;
+&lt;/figure&gt;
+				</pre>
+				
+				<p><span>Instead of </span></p>
+				<pre>
+&lt;img src="path/to/image" alt="About image" /&gt;
+&lt;p&gt;This is an image of something interesting&lt;/p&gt;
+				</pre>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Semantic elements</p>
+				<ul>
+					<li class="smaller-mb">Header</li>
+					<li class="smaller-mb">Section</li>
+					<li class="smaller-mb">Article</li>
+					<li class="smaller-mb">Nav</li>
+					<li class="smaller-mb">Menu</li>
+					<li class="smaller-mb">HGroup</li>
+					<li class="smaller-mb">Aside</li>
+					<li class="smaller-mb">Footer</li>
+				</ul>
+				<p>Divs shouldn't be used for everything, anymore. The new elements are more semantic.</p>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Semantic elements and IE</p>
+				<ul>
+					<li>All elements, by default, have a display of inline.</li>
+					<li>
+						<pre class="smaller-margins">
+header, footer, article, section, nav, menu, hgroup {  
+   display: block;  
+}
+						</pre>
+					</li>
+					<li> Internet Explorer will still ignore these stylings, because it has no clue what they are. Solution?</p></li>
+					<li>
+						<pre class="smaller-margins">
+document.createElement("article");  
+document.createElement("footer");  
+document.createElement("header");  
+document.createElement("hgroup");  
+document.createElement("nav");  
+document.createElement("menu");  
+						</pre>
+					</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Email and URL Input</p>
+				<ul>
+					<li>We can instruct the browser to only allow strings that conform to a valid email address/url structure.</li>
+					<li>We cannot YET depend on browser validation. A server/client side solution must still be implemented.</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Autofocus Attribute</p>
+				<ul>
+					<li> If a particular input should be “selected,” or focused, by default, we can now use the autofocus attribute.</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Placeholder Attribute</p>
+				<ul>
+					<li>You can initially set the value attribute, but 
+						as soon as the user deletes that text and clicks away, the input will be left blank again. 
+						The placeholder attribute remedies this.</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Required Attribute</p>
+				<ul>
+					<li>Specifies whether a particular input is required</li>
+					<li>
+						<pre>
+&lt;form method="post" action=""&gt;  
+    &lt;label for="someInput"&gt; Your Name: &lt;/label&gt;  
+    &lt;input type="text" id="someInput" name="someInput" <br/> placeholder="My Name" required&gt;  
+    &lt;button type="submit"&gt;Go&lt;/button&gt;  
+&lt;/form&gt;  
+						</pre>
+					</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<ul>
+					<li><a target="_blank" href="http://youtu.be/spjOAFGxOP0">Short Example Video</a></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Regular Expressions</p>
+				<ul>
+					<li>
+						<pre>
+&lt;form action="" method="post"&gt;  
+    &lt;label for="username"&gt;Create a Username: &lt;/label&gt;  
+    &lt;input type="text"  
+       name="username"  
+       id="username"  
+       placeholder="4 &lt;&gt; 10"  
+       pattern="[A-Za-z]{4,10}"  
+       autofocus  
+       required&gt;  
+    &lt;button type="submit"&gt;Go &lt;/button&gt;  
+&lt;/form&gt;  
+						</pre>
+					</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Data Attribute</p>
+				<ul>
+					<li> We have support for custom attributes within all HTML elements.</li>
+					<li>
+						<pre>
+&lt;div id="myDiv" data-custom-attr="My Value"&gt; Bla Bla &lt;/div&gt;  
+						</pre>
+					</li>
+					<li>
+						<pre>
+var theDiv = document.getElementById('myDiv');  
+var attr = theDiv.getAttribute('data-custom-attr');  
+alert(attr); // My Val
+						</pre>
+					</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Data Attribute</p>
+				<ul>
+					<li><a target="_blank" href="http://192.168.0.145/test/HTML Presentation/examples/DataAttribute/dataattribute.html">Example (CSS)</a></li>
+				</ul>
+			</article>
+
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Detect Support for Attributes</p>
+				<ul>
+					<li>Utilize the <a target="_blank" href="http://www.modernizr.com/">Modernizr</a> library</li>
+					<p>Or try </p>
+					<li>
+						<pre>
+if (!'pattern' in document.createElement('input') ) {  
+    // do client/server side validation  
+}  
+						</pre>
+					</li>
+				</ul>
+			</article>
+
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Content Editable</p>
+				<p> 
+						<pre>
+contenteditable = true
+or
+contenteditable = "true"
+						</pre>
+					</p>
+				<ul>
+					<li><a target="_blank" href="http://192.168.0.145/test/HTML Presentation/examples/ContentEditable/contentEditable.html">Example 1 - Simple</a></li>
+					<li><a target="_blank" href="http://192.168.0.145/test/HTML Presentation/examples/StatusUpdateBarLikeGooglePuls/status.htm">Example 2 -Google Plus Style Status Update</a></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class="bold">Output Element</p>
+				<ul>
+					<li>
+						 is used to display some sort of calculation
+					</li>
+					<li> 
+						<pre>
+&lt;output name="sum"&gt;&lt;/output&gt; 
+						</pre>
+					</li>
+					<li><a target="_blank" href="http://192.168.0.145/test/HTML Presentation/examples/Output/output.html">Example</a></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class= 'bold'>History</p>
+				<ul>
+					<li>There is no way tell a browser to change the URL but only download half a page.</li>
+					<li>Instead of triggering a full page refresh, you can use script to, in essence, download half a page.</li>
+					<li>We have page A and B. B is 90% identical to A.</li>
+					<ul>
+						<li>Load the 10% of the page from page B that is different from page A</li>
+						<li>Swap in the changed content (using innerHTML or other DOM methods).</li>
+						<li>Update the browser location bar with the URL of page B, using a particular method from the HTML5 history API</li>
+					</ul>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class= 'bold'>History</p>
+				<ul>
+					<li><a target="_blank" href="http://diveintohtml5.info/examples/history/gallery/casey.html">Example</a></li>
+					<li><a target="_blank" href="http://github.com">Example</a></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>HTML5 Features</h3>
+				<p class= 'bold'>Local Storage</p>
+				<ul>
+					<li><a target="_blank" href="http://192.168.0.145/test/HTML Presentation/examples/LocalStorage/localstorage.html">Example</a></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>WebSockets</h3>
+				<ul>
+					<li>let us talk to the server without using AJAX requests.</li>
+					<li>is a technique for two-way communication over one (TCP) socket, a type of PUSH technology.</li>
+					<li><img src="images/WebSocket.png" alt="WebSockets" width="450px"/></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>WebSockets</h3>
+				<ul>
+					<li>Websockets can replace long-polling.</li> 
+					<li>The client sends a request to the server – now, 
+						rather than the server responding with data it may not have, it essentially keeps the connection open until the fresh, 
+						up-to-date data is ready to be sent.</li>
+					<li>The client next receives this, and sends another request.</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h3>WebSockets</h3>
+				<p>Benefits:</p>
+					<ul>
+						<li>Decreased latency - as a connection which has already been opened does not require a new connection to be established.</li>
+						<li>Long-polling isn’t really a piece of fancy technology: 
+							it’s also possible for a request to time-out, and thus a new connection will be needed anyway.</li>
+					</ul>
+			</article>
+			
+			<article class="">
+				<h3>WebSockets</h3>
+				<ul>
+					<li><p><a href='http://192.168.0.145/geolocation.html5'>Example</a></p></li>
+					<li><p><a href='http://net.tutsplus.com/tutorials/javascript-ajax/start-using-html5-websockets-today/'>Read More</a></p></li>
+					<li><p><a href='http://dev.w3.org/html5/websockets/'>API Specification</a></p></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>Geolocation</h2>
+				<ul>
+					<li>It is not HTML5</li>
+					<li>It retrieve the geographical location information for a client-side device</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>Geolocation</h2>
+				<ul>
+					<li><p><a href='http://192.168.0.145/test/HTML5 Presentation/examples/Geolocation/geolocation.html'>Example</a></p></li>
+					<li><p><a href='http://mobile.tutsplus.com/tutorials/mobile-web-apps/html5-geolocation/'>Read More</a></p></li>
+					<li><p><a href='http://dev.w3.org/geo/api/spec-source.html'>API Specification</a></p></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>SVG</h2>
+				<p class = 'bold'>Scalable Vector Graphics </p>
+				<ul>
+					<li>It is not HTML5. It is about 5 years old</li>
+					<li>SVG is a markup language for describing two-dimensional graphics applications and images, and a set of related graphics script interfaces.</li>
+					<li>SVG 2 is currently under development, and will add new ease-of-use features to SVG, as well as more closely integrating with HTML, CSS, and the DOM.</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>Client Storage</h2>				
+				<ul>
+					<li>It is not HTML5.</li>
+					<li>Is divided into 3 methodologies:</li>
+						<ul>
+							<li>Local Storage</li>
+							<li>Session storage</li>
+							<li>Database storage</li>
+						</ul>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>Client Storage</h2>
+				<p class = 'bold'>Session storage</p>		
+				<ul>
+					<li>Cookies are limited to 4 kilobytes of space</li>
+					<li>Cookies are sent to the server with every HTTP request. 
+						Session data,isn't sent automatically. This reduces the payload that goes with every request.</li>
+					<li>If two users want to shop from the same site from two windows of the same browser, it is not possible 
+						because cookies are tied to the browser session. With session storage, 
+						this can be done as it is tied to the browser tab/window.</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>Client Storage</h2>
+				<p class = 'bold'>Database storage</p>		
+				<ul>
+					<li> We get database storage - a real SQL database on client.</li>
+					<li>
+						<pre>
+var database = openDatabase("Database Name", "Database Version"); 
+database.executeSql("SELECT * FROM test", function(result1) { 
+	// do something with the results 
+	database.executeSql("DROP TABLE test", function(result2) { 
+	   // do some more stuff 
+	   alert("My second database query finished executing!"); 
+	}); 
+});  							
+						</pre>
+					</li>
+					
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>Not covered by this presentation</h2>
+				<ul>
+					<li>Audio - Video Display</li>
+					<li>Mark element</li>
+					<li>Small tag - redefined</li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h2>Conclusion</h2>
+				<p>HTML5 is expected to be complete in 2022,
+				 but this doesn't mean we can't start using it today.</p>
+				<p>There are a bunch of new features that can excite even the most skeptical person!</p><br />		
+				<p>You should give it a try!</p>
+			</article>
+			
+			<article class="">
+				<h3>References</h3>
+				<ul>
+					<li><a target="_blank" href="http://diveintohtml5.info/history.html">Manipulate browser history</a></li>
+					<li><a target="_blank" href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">HTML5 Features</a></li>
+					<li><a target="_blank" href="http://net.tutsplus.com/tutorials/javascript-ajax/start-using-html5-websockets-today/">Web Sockets</a></li>
+					<li><a target="_blank" href="http://mobile.tutsplus.com/tutorials/mobile-web-apps/html5-geolocation/">Geolocation</a></li>
+					<li><a target="_blank" href="http://www.webreference.com/authoring/languages/html/HTML5-Client-Side/index.html">Client Storage</a></li>
+				</ul>
+			</article>
+			
+			<article class="">
+				<h1>Questions?</h1>
+			</article>
+			
+			<article>
+				<h1>Thanks!</h1>
+				<p>
+					ddumbravean@gmail.com</a>
+				</p>
+			</article>
+			
+			<div class="slide-area" id="prev-slide-area"></div><div class="slide-area" id="next-slide-area"></div>
+		</section>
+	</body>
+</html>

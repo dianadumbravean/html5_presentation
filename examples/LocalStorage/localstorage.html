@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Local Storage</title>
+</head>
+
+<body>
+	
+	<script>  
+		if (typeof(localStorage) == 'undefined' ) {
+			alert('Your browser does not support HTML5 localStorage. Try upgrading.');
+		} else {
+			try {
+				localStorage.setItem("name", "Hello World!"); //saves to the database, "key", "value"
+			} catch (e) {
+			 	 if (e == QUOTA_EXCEEDED_ERR) {
+			 	 	 alert('Quota exceeded!'); //data wasn't successfully saved due to quota exceed so throw an error
+				}
+			}
+		 
+			document.write(localStorage.getItem("name")); //Hello World!
+			localStorage.removeItem("name"); //deletes the matching item from the database
+		}
+	</script>
+	
+</body>
+</html>

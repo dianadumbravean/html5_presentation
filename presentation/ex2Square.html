@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Draw a triangle</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+		
+		<style>
+			canvas
+			{
+				border: 1px solid black;
+			}
+		</style>	
+		<script>
+			$(function() {
+				var canvas = document.getElementById("square");
+				if (canvas.getContext){
+					var ctx = canvas.getContext("2d");
+					
+					ctx.beginPath();
+					ctx.moveTo(0, 0);
+					ctx.lineTo(0, 100);
+					ctx.lineTo(100, 100);
+					ctx.lineTo(100, 0);
+					ctx.closePath();
+					
+					ctx.fillStyle="red";
+					ctx.fill();
+					
+					ctx.lineWidth = 3;
+					ctx.lineJoin = "round";
+					ctx.stroke();
+				}
+			});
+		</script>
+	</head>
+	
+	<body>
+		<canvas id="square" width="200px" height="200px">Canvas not suported. Please upgrade</canvas> 	   
+	</body>
+</html>
